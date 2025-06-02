@@ -1,0 +1,13 @@
+{
+  "usernameName": "username",
+  "passwordName": "password",
+  "checkboxName": "rememberme",
+  "lostPasswordText": "Lost your password?",
+  "invalidEmail": "carmentestz@gmail.com",
+  "validEmail": "carmentest@gmail.com",
+  "validPassword": "T3st1234!2025",
+  "invalidPassword": "alalbalaportocala12@",
+  "timeoutSeconds": 10
+
+}
+

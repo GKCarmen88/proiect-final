@@ -1,0 +1,8 @@
+{
+  "emailValue": "",
+  "passwordValue": "T3st1234!2025",
+  "expectedEmptyFormError": "Error: Please provide a valid email address.",
+  "expectedAlreadyRegisteredError": "Error: An account is already registered with your email address. Please login.",
+  "registeredEmail": "carmentest@gmail.com",
+  "registeredPassword": "T3st1234!2025"
+}
