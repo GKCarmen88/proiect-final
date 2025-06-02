@@ -31,7 +31,7 @@ public class HomePageTest extends SharedData {
 
                 HPTestPage homePage = new HPTestPage(getDriver());
 
-
+                //Verific nr Sliders si Arivels
                 homePage.waitForOverlayToDisappear();
                 homePage.verifyNumberOfSlides(testData.getExpectedSliderCount());
                 homePage.verifyNumberOfArrivals(testData.getExpectedArrivalsCount());
@@ -46,8 +46,9 @@ public class HomePageTest extends SharedData {
                 // Click pe Add to Basket
                 homePage.clickAddToBasket();
 
-                // Așteaptă navigarea spre pagina basket
-                homePage.waitForUrlToContainBasket();
+
+                // Verifică mesajul de confirmare
+                homePage.verifyConfirmationMessage(testData.getMessageText());
 
                 // Click pe View Basket (dacă este necesar)
                 homePage.clickViewBasket();
@@ -55,8 +56,8 @@ public class HomePageTest extends SharedData {
                 // Verifică redirecționarea
                 homePage.verifyRedirectionToBasket();
 
-                // Verifică mesajul de confirmare
-                homePage.verifyConfirmationMessage(testData.getMessageText());
+                //Click Proced To Checkout
+                homePage.proceedToCheckout();
 
         }
 }

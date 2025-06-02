@@ -1,22 +1,10 @@
 package pages;
 
 import helpMethod.SignUpHelper;
-import loggerUtility.LoggerUtility;
 import modelObject.SignUpModel;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.*;
 import org.testng.Assert;
 
-import java.awt.*;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-
-import java.util.List;
 
 public class SignUpPage {
 
@@ -54,10 +42,6 @@ public class SignUpPage {
 
     public void clickRegister() {
         helper.clickRegister();
-    }
-//pt a face registration
-    public void changeEmail(String email) {
-    helper.changeEmailField(email);
     }
 
 

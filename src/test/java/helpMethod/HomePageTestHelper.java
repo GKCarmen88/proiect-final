@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageLocators.HomePageTestLocators;
 import pageLocators.IndexLocators;
+import pageLocators.LogInTestLocators;
 import pages.IndexPage;
 
 import java.time.Duration;
 import java.util.List;
 
-public class HomePageTestHelper {
+public class HomePageTestHelper{
     private WebDriver driver;
     private JavascriptExecutor js;
 
@@ -111,11 +112,6 @@ public class HomePageTestHelper {
         return countElements(HomePageTestLocators.arrivalsElements);
     }
 
-    public void clickAddToBasket() {
-        scrollToElement(HomePageTestLocators.addToBasketBtnElements);
-        clickElement(HomePageTestLocators.addToBasketBtnElements);
-
-    }
 
 
     public void waitForOverlayToDisappear() {
@@ -166,8 +162,13 @@ public class HomePageTestHelper {
 
 
     public String confirmMessage() {
-        WebElement messageElement = driver.findElement(HomePageTestLocators.confirmMessage);
-        return messageElement.getText();
+        By locator = HomePageTestLocators.confirmMessage;
+        // Așteaptă până când mesajul este vizibil (max 10 secunde)
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement messageElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        String messageText = messageElement.getText();
+        LoggerUtility.infoLog("Mesajul confirmării este: " + messageText);
+        return messageText;
     }
 
     public String fetchCurrentPageUrl() {
@@ -186,6 +187,12 @@ public class HomePageTestHelper {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public void clickProceedToCheckout() {
+        WebElement checkoutButton = driver.findElement(HomePageTestLocators.proceedToCheckoutButton);
+        waitForVisible(HomePageTestLocators.proceedToCheckoutButton);
+        checkoutButton.click();
+        LoggerUtility.infoLog("User clicked on 'Proceed to Checkout' button.");
+    }
 
 
 }

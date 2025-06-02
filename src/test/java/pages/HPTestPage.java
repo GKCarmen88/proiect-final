@@ -23,10 +23,7 @@ public class HPTestPage extends BasePage {
         elementsHelper.waitForOverlayToDisappear();
     }
 
-//    public void clickViewBasket() {
-//        elementsHelper.clickSmart(HomePageTestLocators.viewBasketElements);
-//        LoggerUtility.infoLog("User clicked on 'View Basket' button.");
-//    }
+
 
     public void clickViewBasket() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -35,10 +32,7 @@ public class HPTestPage extends BasePage {
         LoggerUtility.infoLog("User clicked on 'View Basket' button.");
     }
 
-    public void waitForUrlToContainBasket() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.urlContains("basket"));
-    }
+
 
     public void clickAddToBasket() {
         elementsHelper.isAddToBasketElementVisible(HomePageTestLocators.addToBasketBtnElements);
@@ -119,16 +113,16 @@ public class HPTestPage extends BasePage {
         LoggerUtility.infoLog("PASSED: The confirmation message contains the expected part.");
     }
 
+    public void proceedToCheckout() {
+        elementsHelper.clickProceedToCheckout();
 
+        String currentUrl = driver.getCurrentUrl();
+        LoggerUtility.infoLog("Current URL after clicking 'Proceed to Checkout': " + currentUrl);
 
-    public void clickAllArrivals() {
-        List<WebElement> arrivals = elementsHelper.getListElements(HomePageTestLocators.arrivalsElements);
-        for (WebElement arrival : arrivals) {
-            elementsHelper.scrollToElement(arrival);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", arrival);
-            LoggerUtility.infoLog("Action: User clicked on an Arrival item: " + arrival.getText());
-        }
+        Assert.assertTrue(currentUrl.contains("/checkout/"),
+                "FAILED: User was not redirected to the checkout page.");
 
+        LoggerUtility.infoLog("PASSED: User successfully navigated to the checkout page.");
     }
 
 

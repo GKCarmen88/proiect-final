@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageLocators.IndexLocators;
 
 import java.time.Duration;
-import java.util.List;
 
 public class IndexPage extends BasePage {
 
@@ -22,19 +21,6 @@ public class IndexPage extends BasePage {
 
     }
     public void acceptConsentPopup() {
-//        try {
-//            List<WebElement> iframes = driver.findElements(IndexLocators.consentIframe);
-//            if (!iframes.isEmpty()) {
-//                driver.switchTo().frame(iframes.get(0));
-//                elementsHelper.clickJSConsentPopup(IndexLocators.consentButton);
-//                LoggerUtility.infoLog("User clicked on Consent button inside iframe.");
-//                driver.switchTo().defaultContent();
-//            } else {
-//                LoggerUtility.infoLog("Consent iframe not found. Possibly already accepted.");
-//            }
-//        } catch (Exception e) {
-//            LoggerUtility.errorLog("Error while trying to accept consent: " + e.getMessage());
-//        }
         elementsHelper.clickJSConsentPopup(IndexLocators.consentButton);
 
     }
@@ -68,10 +54,6 @@ public class IndexPage extends BasePage {
         }
     }
 
-//    public void clickOnMyAccount(){
-//        elementsHelper.clickJSlocator(IndexLocators.myAccountElements);
-//        LoggerUtility.infoLog("User click on : My Account");
-//    }
 
     public void clickOnMyAccount(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -79,7 +61,6 @@ public class IndexPage extends BasePage {
         myAccount.click();
         LoggerUtility.infoLog("User clicked on: My Account");
     }
-
 
 
 
