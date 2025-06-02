@@ -56,19 +56,11 @@ public class LogInPage extends BasePage {
 
         // Folosește un mesaj de eroare așteptat corect
         String expectedErrorMessageFragment = "The password you entered for the username";
-        logInHelper.validateElementText(LogInTestLocators.errorMessageElements, expectedErrorMessageFragment);
+        logInHelper.validateElementContainsText(LogInTestLocators.errorMessageElements, expectedErrorMessageFragment);
 
         LoggerUtility.infoLog("Mesajul de eroare a fost afișat corect pentru credentiale invalide.");
     }
 
-//    public void validateInvalidLoginMessage(LogInModel testData) {
-//        logInHelper.fillEmailVariant(LogInTestLocators.emailFieldElements, testData.getInvalidEmail());
-//        logInHelper.fillPasswordVariant(LogInTestLocators.passwordFieldElements, testData.getInvalidPassword());
-//        logInHelper.clickLoginButtonVariant(LogInTestLocators.clickLoginElements);
-//
-//        logInHelper.validateElementText(LogInTestLocators.errorMessageElements, testData.getInvalidPassword());
-//        LoggerUtility.infoLog("Mesajul de eroare a fost afișat corect pentru credentiale invalide.");
-//    }
 
     public void validateValidLoginFlow(LogInModel testData) {
         logInHelper.fillEmailVariant(LogInTestLocators.emailFieldElements, testData.getValidEmail());

@@ -28,8 +28,6 @@ public class LogInTest extends SharedData {
         indexPage.waitForMyAccountPageToLoad();  // asta asigură că pagina s-a încărcat după click
 
 
-
-
         //  Validare conținut inițial al formularului
         logInPage.validateEntireLoginFormContent(testData);
 
